@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Type Casting Quiz - Part 3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+            padding: 20px;
+        }
+        .quiz-container {
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+        h2 {
+            text-align: center;
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .options {
+            margin-bottom: 10px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #ff5733;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #c70039;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h2>Python Type Casting Quiz - Part 3</h2>
+
+        <div class="question">
+            <p><b>Q1:</b> What will be the output of <code>print(bool([]))</code>?</p>
+            <div class="options">
+                <input type="radio" name="q1" value="a"> a) True<br>
+                <input type="radio" name="q1" value="b"> b) False<br>
+                <input type="radio" name="q1" value="c"> c) Error<br>
+                <input type="radio" name="q1" value="d"> d) None<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><b>Q2:</b> What will <code>int(True)</code> return?</p>
+            <div class="options">
+                <input type="radio" name="q2" value="a"> a) 1<br>
+                <input type="radio" name="q2" value="b"> b) 0<br>
+                <input type="radio" name="q2" value="c"> c) Error<br>
+                <input type="radio" name="q2" value="d"> d) None<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><b>Q3:</b> What will be the output of <code>print(type(str(5.67)))</code>?</p>
+            <div class="options">
+                <input type="radio" name="q3" value="a"> a) &lt;class 'float'&gt;<br>
+                <input type="radio" name="q3" value="b"> b) &lt;class 'int'&gt;<br>
+                <input type="radio" name="q3" value="c"> c) &lt;class 'str'&gt;<br>
+                <input type="radio" name="q3" value="d"> d) &lt;class 'bool'&gt;<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><b>Q4:</b> What will <code>tuple("ABC")</code> return?</p>
+            <div class="options">
+                <input type="radio" name="q4" value="a"> a) ('ABC')<br>
+                <input type="radio" name="q4" value="b"> b) ('A', 'B', 'C')<br>
+                <input type="radio" name="q4" value="c"> c) ['A', 'B', 'C']<br>
+                <input type="radio" name="q4" value="d"> d) {"A", "B", "C"}<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <p><b>Q5:</b> What happens if you try <code>float("10.5a")</code>?</p>
+            <div class="options">
+                <input type="radio" name="q5" value="a"> a) 10.5<br>
+                <input type="radio" name="q5" value="b"> b) Error<br>
+                <input type="radio" name="q5" value="c"> c) 10.0<br>
+                <input type="radio" name="q5" value="d"> d) None<br>
+            </div>
+        </div>
+
+        <button onclick="checkAnswers()">Submit</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            let answers = {
+                q1: "b",
+                q2: "a",
+                q3: "c",
+                q4: "b",
+                q5: "b"
+            };
+
+            let score = 0;
+            let total = Object.keys(answers).length;
+
+            for (let question in answers) {
+                let selected = document.querySelector('input[name="' + question + '"]:checked');
+                if (selected && selected.value === answers[question]) {
+                    score++;
+                }
+            }
+
+            document.getElementById("result").innerHTML = "You scored " + score + " out of " + total + "!";
+        }
+    </script>
+</body>
+</html>
